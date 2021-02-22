@@ -66,4 +66,5 @@ class Reviewer(Mentor):
         return f"Имя: {self.name}\nФамилия: {self.surname}"
 
     def rate_hw(self, student=None, course=None, grade=None):
+        """ проставляет оценки студентам за дз"""
         functions.dispatcher(self, student, Student, course, grade)

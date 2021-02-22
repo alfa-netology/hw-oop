@@ -26,14 +26,14 @@ reviewer_02.courses_attached += ['Python', 'Git', 'SQL', 'Django']
 def set_lecture_grades(student, lecture):
     courses = [*lecture.courses_attached]
     for c in courses:
-        for g in [random.randint(1, 10) for i in range(4, 10)]:
-            student.rate_lecture(lecture, c, g)
+        for grade in [random.randint(1, 10) for i in range(4, 10)]:
+            student.rate_lecture(lecture, c, grade)
 
 def set_student_grades(reviewer, student):
     courses = [*reviewer.courses_attached]
     for c in courses:
-        for g in [random.randint(1, 10) for i in range(4, 10)]:
-            reviewer.rate_hw(student, c, g)
+        for grade in [random.randint(1, 10) for i in range(4, 10)]:
+            reviewer.rate_hw(student, c, grade)
 
 
 set_lecture_grades(student_01, lecture_01)

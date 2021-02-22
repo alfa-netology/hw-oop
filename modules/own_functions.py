@@ -8,9 +8,10 @@ import inspect
     
     calc_grade_average(obj, grade) - считает среднюю оценку для obj
     
-    dispatcher(self, obj, parent_class, course, grade) регламентирует действие всех вышеперечисленных
+    dispatcher(self, obj, parent_class, course, grade) - регламентирует действие всех вышеперечисленных
     функций в зависимости из какого класса его вызвали  
-
+    
+    def_average_for_all_on_course(obj_list, course_name) - функция для Задания №4  
 """
 
 def dispatcher(self, obj, parent_class, course, grade):
@@ -92,3 +93,21 @@ def calc_grade_average(obj, grade):
     obj.grades['sum'] += grade
     average = round(obj.grades['sum'] / obj.grades['counter'], 1)
     obj.grades['average'] = average
+
+def get_average_for_all_on_course(obj_list, course_name):
+    """
+    считает среднюю оценку по конкретному курсу
+    по дз и лекциям\n
+    args:
+        obj_list: кортеж объектов класса
+        course_name: название курса
+    return:
+        float: среднее по курсу
+    """
+    summary = 0
+    for counter, obj in enumerate(obj_list):
+        if course_name in obj.grades['history']:
+            summary += sum(obj.grades['history'][course_name])
+        else:
+            print(f'\nValueError: {obj.name} {obj.surname} не связан с курсом {course_name}\n')
+    return round(summary / (counter + 1), 2)

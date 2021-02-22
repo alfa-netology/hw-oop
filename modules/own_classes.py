@@ -26,6 +26,9 @@ class Student:
         """ выставляет оценку лектору """
         functions.dispatcher(self, lecture, Lecture, course, grade)
 
+    def average_grade(self):
+        return self.grades['average']
+
 
 class Mentor:
     def __init__(self, name, surname):
@@ -50,6 +53,9 @@ class Lecture(Mentor):
         return f"Имя: {self.name}\n" \
                f"Фамилия: {self.surname}\n" \
                f"Средняя оценка за лекции: {self.grades['average']}"
+
+    def average_grade(self):
+        return self.grades['average']
 
 
 class Reviewer(Mentor):

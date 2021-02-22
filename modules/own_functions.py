@@ -15,13 +15,13 @@ import inspect
 """
 
 def dispatcher(self, obj, parent_class, course, grade):
-    if check_args(obj, course, grade) is True:
-        if check_grades(grade) is True:
-            if check_instance(obj, parent_class) is True:
-                if parent_class.__name__ == 'Student' and check_student_course(obj, course) is True:
+    if check_args(obj, course, grade):
+        if check_grades(grade):
+            if check_instance(obj, parent_class):
+                if parent_class.__name__ == 'Student' and check_student_course(obj, course):
                     set_grade(obj, course, grade)
                     calc_grade_average(obj, grade)
-                elif parent_class.__name__ == 'Lecture' and check_student_course(self, course) is True:
+                elif parent_class.__name__ == 'Lecture' and check_student_course(self, course):
                     if check_lecture_course(obj, course):
                         set_grade(obj, course, grade)
                         calc_grade_average(obj, grade)

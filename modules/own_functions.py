@@ -11,7 +11,7 @@ import inspect
     dispatcher(self, obj, parent_class, course, grade) - регламентирует действие всех вышеперечисленных
     функций в зависимости из какого класса его вызвали  
     
-    def_average_for_all_on_course(obj_list, course_name) - функция для Задания №4  
+    average_for_all_on_course(obj_list, course_name) - функция для Задания №4  
 """
 
 def dispatcher(self, obj, parent_class, course, grade):

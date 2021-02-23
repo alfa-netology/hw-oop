@@ -55,14 +55,25 @@ print(reviewer_01, '\n')
 print(reviewer_02, '\n')
 
 # средняя оценка студента и лектора
-print(f'Средняя оценка {student_01.name} {student_01.surname} за домашние задания {student_01.average_grade()}')
-print(f'Средняя оценка {student_02.name} {student_02.surname} за домашние задания {student_02.average_grade()}', '\n')
-print(f'Средняя оценка {lecture_01.name} {lecture_01.surname} за лекции {lecture_01.average_grade()}')
-print(f'Средняя оценка {lecture_02.name} {lecture_02.surname} за лекции {lecture_02.average_grade()}', '\n')
+print(f'Средняя оценка {student_01.name} {student_01.surname} за домашние задания {student_01.grades["average"]}')
+print(f'Средняя оценка {student_02.name} {student_02.surname} за домашние задания {student_02.grades["average"]}', '\n')
+print(f'Средняя оценка {lecture_01.name} {lecture_01.surname} за лекции {lecture_01.grades["average"]}')
+print(f'Средняя оценка {lecture_02.name} {lecture_02.surname} за лекции {lecture_02.grades["average"]}', '\n')
 
-# сравниваем средние оценки
-print(student_01.average_grade() > student_02.average_grade())
-print(lecture_01.average_grade() < lecture_02.average_grade(), '\n')
+# сравниваем экзепляры класса по средней оценке
+print(f'student_01: {student_01.grades["average"]}')
+print(f'student_02: {student_02.grades["average"]}\n')
+
+print(f'student_01 < student_02: {student_01 < student_02}')
+print(f'student_01 > student_02: {student_01 > student_02}')
+print(f'student_01 == student_02: {student_01 == student_02}\n')
+
+print(f'lecture_01: {lecture_01.grades["average"]}')
+print(f'lecture_02: {lecture_02.grades["average"]}\n')
+
+print(f'lecture_01 < lecture_02: {lecture_01 < lecture_02}')
+print(f'lecture_01 > lecture_02: {lecture_01 > lecture_02}')
+print(f'lecture_01 == lecture_02: {lecture_01 == lecture_02}\n')
 
 
 # ЗАДАНИЕ №4

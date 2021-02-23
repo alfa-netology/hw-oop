@@ -36,8 +36,7 @@ def check_args(*args):
         line = inspect.stack()[2].lineno
         function_name = inspect.stack()[1].function
         print(f'ArgumentsError: {module_name}, строка {line}, {function_name}() передано недостаточно аргументов')
-        # не уверен в необходимости возвращать False, поправтье, если не прав
-        # return False
+        return False
 
 def check_grades(grade):
     if grade in range(1, 11):
@@ -48,14 +47,14 @@ def check_grades(grade):
         function_name = inspect.stack()[1].function
         print(
             f'ValueError: {module_name}, строка {line}, {function_name}() {grade} не целое число в диапозоне от 1 до 10')
-        # return False
+        return False
 
 def check_instance(obj, parent_class):
     if isinstance(obj, parent_class):
         return True
     else:
         print(f'ValueError: {obj} не является потомком {parent_class.__name__}()')
-        # return False
+        return False
 
 def check_student_course(obj, course):
     """ проверяет обучается student на курсе или нет"""
@@ -63,7 +62,7 @@ def check_student_course(obj, course):
         return True
     else:
         print(f'ValueError: {obj.name} {obj.surname} не является студентом курса {course}')
-        # return False
+        return False
 
 def check_lecture_course(obj, course):
     """ провераяет закреплен lecture за курсом или нет"""
@@ -71,7 +70,7 @@ def check_lecture_course(obj, course):
         return True
     else:
         print(f'ValueError: {obj.name} {obj.surname} не преподаёт {course}')
-        # return False
+        return False
 
 def set_grade(obj, course, grade):
     """

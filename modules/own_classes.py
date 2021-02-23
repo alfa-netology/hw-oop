@@ -22,12 +22,13 @@ class Student:
                f"Курсы в процессе изучения: {', '.join(self.courses_in_progress)}\n" \
                f"Завершенные курсы: {', '.join(self.finished_courses)}"
 
+    def __lt__(self, other):
+        return self.grades['average'] < other.grades['average'] \
+               or self.grades['average'] == other.grades['average']
+
     def rate_lecture(self, lecture=None, course=None, grade=None):
         """ выставляет оценку лектору """
         functions.dispatcher(self, lecture, Lecture, course, grade)
-
-    def average_grade(self):
-        return self.grades['average']
 
 
 class Mentor:
@@ -54,8 +55,9 @@ class Lecture(Mentor):
                f"Фамилия: {self.surname}\n" \
                f"Средняя оценка за лекции: {self.grades['average']}"
 
-    def average_grade(self):
-        return self.grades['average']
+    def __lt__(self, other):
+        return self.grades['average'] < other.grades['average'] \
+               or self.grades['average'] == other.grades['average']
 
 
 class Reviewer(Mentor):
